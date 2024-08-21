@@ -15,15 +15,10 @@ function readCsv($filePath) {
 }
 
 // Загрузка данных из всех CSV-файлов
-$data1 = readCsv("bd1.csv");
-$data2 = readCsv("bd2.csv");
-$data3 = readCsv("bd3.csv");
-$data4 = readCsv("bd4.csv");
-$data5 = readCsv("bd5.csv");
-$data6 = readCsv("bd6.csv");
+$data1 = readCsv("subs.csv");
 
 // Объединение всех данных в один массив
-$data = array_merge($data1, $data2, $data3, $data4, $data5, $data6);
+$data = array_merge($data1);
 
 // Получение номера телефона из параметров запроса
 $phone = isset($_GET['phone']) ? $_GET['phone'] : '';
