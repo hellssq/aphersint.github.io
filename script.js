@@ -1,3 +1,34 @@
+function submitLogin() {
+    const username = document.getElementById('username').value;
+    const password = document.getElementById('password').value;
+
+    fetch('login.php', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded'
+        },
+        body: new URLSearchParams({
+            username: username,
+            password: password
+        })
+    })
+    .then(response => response.json())
+    .then(data => {
+        const messageDiv = document.getElementById('login-message');
+        if (data.success) {
+            messageDiv.innerHTML = '<p style="color: green;">Login successful!</p>';
+            // Redirect to another page if needed
+              window.location.href = 'main.html';
+        } else {
+            messageDiv.innerHTML = `<p style="color: red;">${data.message}</p>`;
+        }
+    })
+    .catch(error => {
+        console.error('Error:', error);
+    });
+}
+
+
 function logout() {
     window.location.href = "/";
   }
