@@ -1,61 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Login Page</title>
-  <link rel="stylesheet" href="styles.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <div class="form-container">
-    <p class="title">Login</p>
-    <form class="form" id="login-form" onsubmit="return validateLogin()"> 
-      <div class="input-group">
-        <label for="username">Username</label>
-        <input type="text" name="username" id="username" placeholder="" required>
-      </div>
-      <div class="input-group">
-        <label for="password">Password</label>
-        <input type="password" name="password" id="password" placeholder="" required>
-      </div>
-      <button type="submit" class="sign">Sign in</button>
-    </form>
-    <div id="login-message"></div>
-  </div>
+    <div class="form-container">
+        <p class="title">Login</p>
+        <form id="login-form">
+            <div class="input-group">
+                <label for="username">Username</label>
+                <input type="text" name="username" id="username" required>
+            </div>
+            <div class="input-group">
+                <label for="password">Password</label>
+                <input type="password" name="password" id="password" required>
+            </div>
+            <button type="button" onclick="submitLogin()">Sign in</button>
+        </form>
+        <div id="login-message"></div>
+    </div>
 
-  <script>
-    async function validateLogin() {
-      // Получаем данные формы
-      const username = document.getElementById('username').value;
-      const password = document.getElementById('password').value;
-
-      // Отправляем POST-запрос к login.php
-      const response = await fetch('login.php', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/x-www-form-urlencoded'
-        },
-        body: `username=${encodeURIComponent(username)}&password=${encodeURIComponent(password)}`
-      });
-
-      // Обрабатываем ответ
-      const result = await response.json();
-
-      // Отображаем сообщение
-      const messageDiv = document.getElementById('login-message');
-      if (result.success) {
-        messageDiv.innerHTML = '<p style="color: green;">Login successful! Redirecting...</p>';
-        setTimeout(() => {
-          window.location.href = 'main.html'; // Измените на целевую страницу
-        }, 2000);
-      } else {
-        messageDiv.innerHTML = `<p style="color: red;">${result.message}</p>`;
-      }
-
-      // Предотвращаем стандартную отправку формы
-      return false;
-    }
-  </script>
+    <script src="script.js"></script>
 </body>
 </html>
