@@ -25,31 +25,37 @@
   </div>
 
   <script>
-       function validateLogin() {
-         const username = document.getElementById("username").value;
-         const password = document.getElementById("password").value;
+    async function validateLogin() {
+      // Получаем данные формы
+      const username = document.getElementById('username').value;
+      const password = document.getElementById('password').value;
 
-         // Отправка AJAX-запроса на сервер
-         const xhr = new XMLHttpRequest();
-         xhr.open("POST", "login.php", true); 
-         xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-         xhr.onload = function() {
-           if (xhr.status === 200) {
-             const response = xhr.responseText;
-             if (response === "success") {
-               // Успешная авторизация
-               window.location.href = "main.html"; 
-             } else {
-               document.getElementById("login-message").innerHTML = "Неверный логин или пароль.";
-             }
-           } else {
-             console.error("Ошибка при отправке запроса на сервер:", xhr.status);
-           }
-         };
-         xhr.send("username=" + username + "&password=" + password);
-         return false; 
-       }
+      // Отправляем POST-запрос к login.php
+      const response = await fetch('login.php', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded'
+        },
+        body: `username=${encodeURIComponent(username)}&password=${encodeURIComponent(password)}`
+      });
 
+      // Обрабатываем ответ
+      const result = await response.json();
+
+      // Отображаем сообщение
+      const messageDiv = document.getElementById('login-message');
+      if (result.success) {
+        messageDiv.innerHTML = '<p style="color: green;">Login successful! Redirecting...</p>';
+        setTimeout(() => {
+          window.location.href = 'main.html'; // Измените на целевую страницу
+        }, 2000);
+      } else {
+        messageDiv.innerHTML = `<p style="color: red;">${result.message}</p>`;
+      }
+
+      // Предотвращаем стандартную отправку формы
+      return false;
+    }
   </script>
 </body>
 </html>
