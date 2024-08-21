@@ -1,0 +1,133 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300..700&display=swap');
+
+body {
+    font-family: 'Inter', sans-serif;
+
+    overflow-y: auto;
+    background-color: #171717;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+.search-btn {
+    display: block;
+    width: 80%;
+    background-color: rgba(167, 139, 250, 1);
+    padding: 0.75rem;
+    text-align: center;
+    color: rgba(17, 24, 39, 1);
+    border: none;
+    border-radius: 0.375rem;
+    font-weight: 600;
+    cursor: pointer;
+}
+.main-container {
+    width: 320px;
+    border-radius: 0.75rem;
+    background-color: #1e2028;
+    padding: 2rem;
+    color: rgba(243, 244, 246, 1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.logo {
+    margin-bottom: 2rem;
+}
+
+.logo img {
+    max-width: 100%;
+    height: auto;
+}
+.search-button {
+    background-color: #4CAF50; /* Зеленый цвет */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 10px 0;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+.title {
+    text-align: center;
+    font-size: 1.5rem;
+    line-height: 2rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.input-group {
+    margin-top: 0.25rem;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    width: 100%;
+}
+
+.input-group label {
+    display: block;
+    color: rgba(156, 163, 175, 1);
+    margin-bottom: 4px;
+}
+.search-button  {
+    width: 100%;
+    border-radius: 0.375rem;
+    border: 1px solid rgba(55, 65, 81, 1);
+    outline: 0;
+    background-color: #1e2028;
+    padding: 0.75rem 1rem;
+    color: rgba(243, 244, 246, 1);
+    margin-bottom: 1rem;
+}
+.input-group input {
+    width: 100%;
+    border-radius: 0.375rem;
+    border: 1px solid rgba(55, 65, 81, 1);
+    outline: 0;
+    background-color: #1e2028;
+    padding: 0.75rem 1rem;
+    color: rgba(243, 244, 246, 1);
+    margin-bottom: 1rem;
+}
+
+.input-group input:focus {
+    border-color: rgba(167, 139, 250);
+}
+
+.sign {
+    display: block;
+    width: 25%;
+    background-color: rgba(167, 139, 250, 1);
+    padding: 0.35rem;
+    text-align: center;
+    color: rgba(17, 24, 39, 1);
+    border: none;
+    border-radius: 0.275rem;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.enter-button {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.enter-button:hover {
+    background-color: #3e8e41;
+}

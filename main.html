@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MADNESS OSINT</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="main-container">
+        <div class="logo">
+            <img src="photo.png" alt="Logo">
+        </div>
+        <p class="title">APHERSINТ<?php echo htmlspecialchars($_SESSION['username']); ?></p>
+        
+        <div class="input-group">
+            <div class="input-container">
+                <input type="text" id="number-input" placeholder="Введите номер телефона...">
+                <button class="search-btn" onclick="loadPhoneData()">Искать по номеру</button>
+            </div>
+            <div id="phone-results"></div> <!-- Здесь будут отображаться результаты поиска -->
+
+            <div class="input-container">
+                <input type="text" id="ip-input" placeholder="Введите IP...">
+                <button class="search-btn" onclick="lookupIP()">Искать по IP</button>
+            </div>
+            <div class="input-container">
+                <input type="text" id="inn-input" placeholder="Введите ИНН...">
+                <button class="search-btn" onclick="loadResultn()">Искать по INN</button>
+            </div>
+            <div class="input-container">
+                <input type="text" id="car-input" placeholder="Введите гос. номер...">
+                <button class="search-btn" onclick="loadResults()">Искать</button>
+            </div>
+            <div class="input-container">
+                <input type="text" id="tg-input" placeholder="Введите Telegram ID...">
+                <button class="search-btn" onclick="getUserData()">Искать по ID</button>
+            </div>
+        </div>
+
+
+
+        <div id="file-link-container"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
