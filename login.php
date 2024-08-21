@@ -10,7 +10,7 @@ try {
     exit();
 }
 
-// Получаем данные из запроса
+// Получаем данные из POST-запроса
 $username = $_POST['username'] ?? '';
 $password = $_POST['password'] ?? '';
 
